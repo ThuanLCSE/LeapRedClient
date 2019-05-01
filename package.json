@@ -1,0 +1,21 @@
+{
+  "name": "LeapRedisClient",
+  "version": "1.0.0",
+  "description": "Redis PubSub, NodeJS, and Socket.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThuanLCSE/LeapRedClient.git"
+  },
+  "keywords": [
+    "Redis",
+    "NodeJS",
+    "Socket.io"
+  ],
+  "author": "ThuanLCSE",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "redis": "^2.6.3",
+    "socket.io": "^1.5.1"
+  }
+}
