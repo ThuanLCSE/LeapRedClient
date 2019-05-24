@@ -4,7 +4,9 @@
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script type="text/javascript">
       function fetch() {
-        var sock = io("http://localhost:8000");
+        //initiate the WebSocket
+        var sock = io("http://127.0.0.1:8000");
+        //listen to the broadcast leapthuanio at client
        sock.on('leapthuanio', function(msg) { 
           data = JSON.parse(msg);
           var result = "Detected data: </br>";
