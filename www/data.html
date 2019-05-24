@@ -1,0 +1,84 @@
+<h3> The structure of MultiLeap data </h3>
+The structure below describes the data received from this line of code: </br>
+<q>
+	sock.on('leapthuanio', function(msg) { <br/>
+        <b>data = JSON.parse(msg);</b> <br>
+      	var result = "Detected data: < /br>"; <br/>
+</q> <br/>
+<p>All the detail of the data can be found here : <br/><a href="https://developer-archive.leapmotion.com/documentation/javascript/api/Leap.Frame.html">Frame</a>
+<br/><a href="https://developer-archive.leapmotion.com/documentation/javascript/api/Leap.Finger.html">Finger</a><br/>
+<a href="https://developer-archive.leapmotion.com/documentation/javascript/api/Leap.Hand.html">Hand</a>
+<br/>
+<a href="https://developer-archive.leapmotion.com/documentation/javascript/api/Leap.Pointable.html">Pointable</a><br/>
+<a href="https://developer-archive.leapmotion.com/documentation/javascript/api/Leap.Bone.html">Bone</a></p></br>
+data :
+{sensors: [ 
+  {ip : The IP of the Virtual machine where the Leap Motion sensor is connected <br/>
+	positionX : the coordinate X of the sensor on the table  <br/>
+	positionY : the coordinate Y of the sensor on the table <br/>
+  rotation : the coordinate X of the sensor on the table <br/>
+  dump : the returned data from dump() method of Frame , a JSON-formatted string containing the hands, and pointables in this frame.<br/>
+  toString : the returned data from toString() method of Frame, a string containing a brief, human readable description of the Frame object.<br/>
+  hands : [
+    {palmPosition : the center position of the palm in millimeters from the Leap origin.<br/>
+    grabStrength : the strength of a grab hand pose.<br/>
+  confidence : A low value indicates that there are significant discrepancies; finger positions, even hand identification could be incorrect<br/>
+  direction : The direction from the palm position toward the fingers <br/>
+  palmNormal : The normal vector to the palm. If your hand is flat, this vector will point downward, or “out” of the front surface of your palm. <br/>
+  palmVelocity: The rate of change of the palm position in millimeters/second.<br/>
+  palmWidth : The average outer width of the hand (not including fingers or thumb) in millimeters.<br/>
+  pinchStrength : The holding strength of a pinch hand pose<br/>
+  sphereCenter : The center of a sphere fit to the curvature of this hand. <br/>
+  sphereRadius : The radius of a sphere fit to the curvature of this hand, in millimeters.<br/>
+  stabilizedPalmPosition : The stabilized palm position of this Hand.<br/>
+  type : string value either “right” or “left”, identifies whether this Hand is a right or a left hand. <br/>
+  toString : A string containing a brief, human readable description of the Hand object.;<br/>
+  roll : The roll angle in radians.<br/>
+  pitch : The pitch angle in radians.
+<br/>  yaw : The yaw angle in radians.  
+  <br/>arm = {  //The Bone class represents a tracked arm bone.
+    <br/>basis :  The orthonormal basis vectors for this Bone
+    <br/>width : The average width of the fleshy part surrounding this bone.
+    <br/>center : The midpoint of this bone in millimeters within the Leap Motion coordinate system
+    <br/>matrix : The transformation describing the bone orientation and position within the Leap Motion coordinate system. 
+    <br/>nextJoint : The distal end of the bone closest to the finger tip.
+    <br/>prevJoint: The proximal end of the bone closest to the torso
+    <br/>direction : The direction vector along the bone’s longitudinal axis.
+    <br/>type : The code for the anatomical identity of this bone:
+<br/>          0 = Metacarpal
+    <br/>      1 = Proximal phalanx
+<br/>          2 = Intermediate phalanx
+<br/>          3 = Distal phalanx
+<br/>          4 = forearm
+  <br/>},
+  <br/>fingers: [ 
+  <br/>{bones : an array containing the finger bones whose ordered from wrist to finger tip (metacarpal, proximal, intermediate, and distal)
+<br/>  type : a code indicating the finger's  anatomical name 
+  <br/>extended : True, if the finger is a pointing, or extended, posture.    toString = data.toString() 
+  <br/>carpPosition : The physical position of the base end of the metacarpal bone of the finger (closest to the wrist).
+<br/>  dipPosition : The physical position of the distal interphalangeal joint of the finger. This point is the base of the distal bone (closest to the intermediate phalanx).
+<br/>  mcpPosition : The physical position of the metacarpophalangeal joint, or knuckle, of the finger. This position is the joint between the metacarpal and proximal phalanx bones.
+  <br/>pipPosition : The physical position of the proximal interphalangeal joint of the finger. This position is the joint between the proximal and the intermediate phalanges.
+<br/>  tipPosition : The tip position in millimeters from the Leap origin, finger class extended from pointable class, then a finger has all the attributes as pointable class (https://developer-archive.leapmotion.com/documentation/javascript/api/Leap.Pointable.html#Pointable)
+<br/>  length : The estimated length of the finger in millimeters.
+  <br/>timeVisible : The amount of time this pointable has been continuously visible to the Leap Motion controller in seconds.
+<br/>  width : The estimated width of the finger in millimeters. 
+  <br/>bones: [
+    <br/>{basis :  The orthonormal basis vectors for this Bone
+    <br/>width : The average width of the fleshy part surrounding this bone.
+    <br/>center : The midpoint of this bone in millimeters within the Leap Motion coordinate system
+    <br/>matrix : The transformation describing the bone orientation and position within the Leap Motion coordinate system. 
+<br/>    nextJoint : The distal end of the bone closest to the finger tip.
+    <br/>prevJoint: The proximal end of the bone closest to the torso
+    <br/>direction : The direction vector along the bone’s longitudinal axis.
+    <br/>type : The code for the anatomical identity of this bone:
+<br/>          0 = Metacarpal
+<br/>          1 = Proximal phalanx
+<br/>          2 = Intermediate phalanx
+<br/>          3 = Distal phalanx
+<br/>          4 = forearm
+  <br/>}]
+  <br/>}],
+  <br/>}]
+  <br/>}
+<br/>] }

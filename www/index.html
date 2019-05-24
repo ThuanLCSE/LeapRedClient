@@ -5,15 +5,19 @@
     <script type="text/javascript">
       function fetch() {
         var sock = io("http://localhost:8000");
-       sock.on('leapthuanio', function(msg) {
-          console.log(msg);
+       sock.on('leapthuanio', function(msg) { 
           data = JSON.parse(msg);
-          document.getElementById("ioreceiver").innerHTML = data.sensors[0].ip +" hands: "+data.sensors[0].hands.length + "   " +data.sensors[1].ip +" hands: "+data.sensors[1].hands.length ;
+          var result = "Detected data: </br>";
+          for(var i = 0; i< data.sensors.length ; i++){ 
+            result += data.sensors[i].ip + " x: "+data.sensors[i].positionX + " y:" +data.sensors[i].positionY +" rotation: "+ data.sensors[i].rotation + " dump: " + data.sensors[i].dump +" </br>"
+          }
+          document.getElementById("ioreceiver").innerHTML = result;
         });
       }
     </script>
   </head>
   <body onload="fetch()">
+    <a href="./data.html">Data structure's document</a>
   	<div id="ioreceiver"></div>
   </body>
 </html>

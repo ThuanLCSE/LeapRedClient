@@ -3,7 +3,7 @@ var app = express();
 var http = require('http').Server(app);
 var redis = require('redis');
 var portRD = '6379'
-var hostRD = '172.22.209.18'
+var hostRD =  'localhost' //'172.22.209.18'
 var client = redis.createClient(portRD, hostRD); 
 var io = require('socket.io')(http)
 
